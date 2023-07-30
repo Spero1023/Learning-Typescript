@@ -97,12 +97,6 @@ export function HangManDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   return (
     <>
       <Link
-        style={{ fontSize: '30px', position: 'absolute', left: '80px' }}
-        to='/'
-      >
-        HOME
-      </Link>
-      <Link
         style={{ fontSize: '30px', position: 'absolute', left: '190px' }}
         to='/Todo'
       >

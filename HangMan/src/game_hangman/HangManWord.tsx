@@ -9,6 +9,7 @@ export function HangManWord({
   wordToGuess,
   reveal = false,
 }: HangmanWordProps) {
+  console.log(wordToGuess);
   return (
     <div
       style={{

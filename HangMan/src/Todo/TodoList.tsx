@@ -121,15 +121,9 @@ function Todo() {
       <header>
         <Link
           style={{ fontSize: '30px', position: 'absolute', left: '80px' }}
-          to='/hangman'
-        >
-          HANGMAN
-        </Link>
-        <Link
-          style={{ fontSize: '30px', position: 'absolute', left: '255px' }}
           to='/'
         >
-          HOME
+          HANGMAN
         </Link>
         <h2> React todo list with Typescript</h2>
       </header>
