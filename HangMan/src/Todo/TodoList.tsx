@@ -7,8 +7,6 @@ import React, {
 import { useState } from 'react';
 import './Todo.css';
 import { Link } from 'react-router-dom';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 
 let CustomMap: { [key: string]: any } = {};
 function Todo() {
@@ -19,9 +17,8 @@ function Todo() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const eListStr: string | null = localStorage.getItem('todoList') ?? '';
-    const existingList: string[] =
-      eListStr?.length > 0 ? JSON.parse(eListStr) : [];
+    const todo: string | null = localStorage.getItem('todoList') ?? '';
+    const existingList: string[] = todo?.length > 0 ? JSON.parse(todo) : [];
     setTodoList(existingList);
     let doneMap: typeof CustomMap;
     if (localStorage.getItem('doneMap')) {
@@ -33,9 +30,8 @@ function Todo() {
   }, []);
 
   const getExistingList = (): string[] => {
-    const eListStr: string | null = localStorage.getItem('todoList') ?? '';
-    const existingList: string[] =
-      eListStr?.length > 0 ? JSON.parse(eListStr) : [];
+    const todo: string | null = localStorage.getItem('todoList') ?? '';
+    const existingList: string[] = todo?.length > 0 ? JSON.parse(todo) : [];
     return existingList;
   };
 
@@ -57,14 +53,6 @@ function Todo() {
     setTodo('');
     setEditTodoIdx(null);
     setOpen(true);
-  };
-
-  const handleClose = (event: React.SyntheticEvent, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
   };
 
   const editTodo: MouseEventHandler<Element> = (
@@ -140,15 +128,6 @@ function Todo() {
               <button className='btn_save' onClick={enterTodo}>
                 Save
               </button>
-              <Snackbar
-                open={open}
-                autoHideDuration={2000}
-                onClose={handleClose}
-              >
-                <MuiAlert elevation={6} variant='filled' severity='success'>
-                  Todo Added!
-                </MuiAlert>
-              </Snackbar>
             </div>
             <ul>
               {todoList.map((t: string, idx: number) => (

@@ -21,7 +21,6 @@ function Game() {
   const addGussedLetter = useCallback(
     (letter: string) => {
       if (guessedLetter.includes(letter) || isLoser || isWinner) return;
-
       setGuessedLetters((currentLetters) => [...currentLetters, letter]);
     },
     [guessedLetter, isLoser, isWinner]
